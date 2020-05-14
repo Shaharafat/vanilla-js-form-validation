@@ -1,0 +1,140 @@
+// ? ==> variables 
+$primary-color : #55efc4;
+$font-color: #fff;
+$warning-color: rgb(255, 0, 0);
+$success-color: #05D59D;
+$title-bg-color:#35dfaf;
+$form-color:#35d0a4;
+
+//? => Basic Formatting...
+body {
+  height: 100vh;
+  background-color: $primary-color;
+  font-family: 'lato', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div,
+section,
+form,
+ul,
+li,
+ol,
+table,
+textarea,
+input,
+section,
+main,
+nav,
+footer,
+header,
+body,
+button,
+i,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// ? FORM DESIGN
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: $form-color;
+
+  &>*:not(.form__title) {
+    padding: 1rem;
+  }
+
+  & .form__title {
+    font-size: 2.3rem;
+    font-weight: 400;
+    padding: 1.5rem;
+    color: $font-color;
+    background-color: $title-bg-color;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: .8rem 0;
+
+    position: relative;
+
+    &>label {
+      color: $font-color;
+      font-size: 1.1rem;
+      padding-bottom: .5rem;
+    }
+
+    &>input {
+      padding: .8rem .5rem;
+      width: 100%;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      font-size: 1.3rem;
+      background-color: rgb(248, 245, 245);
+
+      & ~ *:not(.warning) {
+        position: absolute;
+        top: 59px;
+        right: 10px;
+        display: none;
+
+        &.success{
+          display: inline;
+          color: $success-color;
+        }
+
+        &.invalid{
+          display: inline;
+          color: $warning-color;
+        }
+      }
+
+      & ~ .warning{
+        position: absolute;
+        bottom: -10px;
+        color: $warning-color;
+        display: none;
+        &.showWarning{
+          display: block;
+        }
+      }
+
+      &:focus {
+        background-color: #fff;
+      }
+
+      &.submitBtn {
+        background-color: $success-color;
+        color: $font-color;
+        text-transform: uppercase;
+        box-shadow: 0 2px 4px rgb(62, 62, 62);
+        cursor: pointer;
+        transition: all ease-in;
+
+
+        &:active {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+
+}
